@@ -1,5 +1,6 @@
 import { useState, createContext } from 'react'
 import Details from './components/Details'
+import Footer from './components/Footer'
 import English from './lang/en.json'
 import Spanish from './lang/es.json'
 import French from './lang/fr.json'
@@ -18,7 +19,7 @@ export const LanguageContext = createContext()
 function App() {
   const [lang, setLang] = useState(_lang)
   return (
-    <LanguageContext.Provider value={{ lang }}>
+    <LanguageContext.Provider value={{ lang, English }}>
       <div className="App">
         <header className="App-header">
           <div>
@@ -37,6 +38,7 @@ function App() {
             {lang["app.cta"]}
           </a>
           <Details />
+          <Footer />
         </header>
       </div>
     </LanguageContext.Provider>
