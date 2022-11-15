@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import English from './lang/en.json'
 import Spanish from './lang/es.json'
 import French from './lang/fr.json'
+import Arabic from './lang/ar.json'
 import './App.css'
 
 const locale = navigator.language || 'en';
@@ -12,7 +13,9 @@ const _lang = (locale === 'es')
   ? Spanish
   : (locale === 'fr')
     ? French
-    : English;
+    : (locale === 'ar')
+      ? Arabic
+      : English;
 
 export const LanguageContext = createContext()
 
@@ -23,9 +26,10 @@ function App() {
       <div className="App">
         <header className="App-header">
           <div>
-            <button onClick={() => setLang(English)}>EN</button>
-            <button onClick={() => setLang(Spanish)}>ES</button>
-            <button onClick={() => setLang(French)}>FR</button>
+            <button onClick={() => setLang(English)}>🇺🇸</button>
+            <button onClick={() => setLang(Spanish)}>🇪🇸</button>
+            <button onClick={() => setLang(French)}>🇫🇷</button>
+            <button onClick={() => setLang(Arabic)}>🇪🇬</button>
           </div>
           <h1>{lang["app.header"]}</h1>
           <p>{lang["app.subhead"]}</p>
